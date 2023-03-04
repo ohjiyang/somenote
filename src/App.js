@@ -1,4 +1,6 @@
 import './App.css';
+import Main from "./Components/Main";
+import Navigation from "./Components/Navigation";
 
 function App() {
     return (
@@ -11,7 +13,8 @@ function App() {
             <section className="page">
                 <div className="page__container __container">
                     <div className="page__body">
-                        page
+                        <Navigation />
+                        <Main />
                     </div>
                 </div>
             </section>
