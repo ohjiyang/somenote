@@ -51,3 +51,20 @@ body {
     margin: 0px auto;
     box-sizing: content-box;
 }
+/* ---------------------------------------------------------------------------- */
+.header__body {
+    background: #181818;
+    border-bottom: 1px solid #242424;
+}
+.page__body {
+    display: flex;
+    background: #181818;
+}
+/* ---------------------------------------------------------------------------- */
+.navigation {
+    width: 30%;
+    border-right: 1px solid #242424;
+}
+.main {
+    width: 70%;
+}
