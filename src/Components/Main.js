@@ -1,6 +1,6 @@
 import Somenote from "./MainComponents/Somenote";
 
-const Main = () => {
+const Main = (props) => {
     return (
         <div className="main">
             <div className="main__body">
