@@ -76,7 +76,9 @@ class Tree {
 function App() {
     const [somenotes, setSomenotes] = useState(new Tree("first", "first"));
 
-    const addNode = (parentNodeKey, key, value = key) => {
+    const addNode = (parentNodeKey) => {
+        const key = ""
+        const value = ""
         setSomenotes(prevSomenotes => {
             const updatedTree = new Tree(prevSomenotes.root.key, prevSomenotes.root.value);
             for (let node of prevSomenotes.preOrderTraversal()) {
@@ -89,8 +91,7 @@ function App() {
         });
     }
 
-    return (
-        <div className="App">
+    return (<div className="App">
             <section className="header">
                 <div className="header__container __container">
                     <div className="header__body">header</div>
@@ -100,12 +101,11 @@ function App() {
                 <div className="page__container __container">
                     <div className="page__body">
                         <Navigation/>
-                        <Main somenotes={somenotes}/>
+                        <Main somenotes={somenotes} addNote={addNode}/>
                     </div>
                 </div>
             </section>
-        </div>
-    );
+        </div>);
 }
 
 export default App;
