@@ -4,7 +4,7 @@ const Main = (props) => {
     return (
         <div className="main">
             <div className="main__body">
-                <Somenote />
+                <Somenote somenotes={props.somenotes.root}/>
             </div>
         </div>
     )

@@ -1,11 +1,15 @@
-const Somenotes = () => {
+const Somenotes = (props) => {
     return (
         <div className="somenotes">
-            <div className="navigation__head">
-                somenotes head
-            </div>
-            <div className="navigation__body">
-                somenotes body
+            <div className="somenote">
+                <input value={props.somenotes.value} />
+                {
+                    props.somenotes.children.map((somenotes, index) => (
+                        <div key={index} className="somenote__children">
+                            <Somenotes somenotes={somenotes}/>
+                        </div>
+                    ))
+                }
             </div>
         </div>
     )
