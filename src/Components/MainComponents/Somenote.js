@@ -1,5 +1,9 @@
 const Somenotes = (props) => {
 
+    const addNote = (parentNodeKey, value) => {
+        props.addNote(parentNodeKey, value)
+    }
+
     return (
         <div className="somenotes">
             <div className="somenote">
@@ -10,14 +14,14 @@ const Somenotes = (props) => {
                 />
                 <button
                     className="somenote__button"
-                    onClick={()=>props.addNote(props.somenotes.value)}
+                    onClick={()=>addNote(props.somenotes.key, "IDC")}
                 >
                     increase
                 </button>
                 {
                     props.somenotes.children.map((somenotes, index) => (
                         <div key={index} className="somenote__children">
-                            <Somenotes somenotes={somenotes} />
+                            <Somenotes somenotes={somenotes} addNote={addNote}/>
                         </div>
                     ))
                 }
