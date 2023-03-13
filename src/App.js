@@ -71,6 +71,15 @@ class Tree {
         }
         return undefined;
     }
+
+    change(key, newValue) {
+        const node = this.find(key);
+        if (node) {
+            node.value = newValue;
+            return true;
+        }
+        return false;
+    }
 }
 
 function App() {
@@ -88,7 +97,6 @@ function App() {
 
     const addNode = (parentNodeKey, value) => {
         const key = getRandomKey()
-        console.log(parentNodeKey, key, value)
         setSomenotes(prevSomenotes => {
             const updatedTree = new Tree(prevSomenotes.root.key, prevSomenotes.root.value);
             for (let node of prevSomenotes.preOrderTraversal()) {
@@ -101,6 +109,14 @@ function App() {
         });
     }
 
+    const changeNote = (key, newValue) => {
+        setSomenotes(prevSomenotes => {
+            const newTree = prevSomenotes
+            newTree.change(key, newValue)
+            return newTree
+        })
+    }
+
     return (<div className="App">
             <section className="header">
                 <div className="header__container __container">
@@ -111,7 +127,7 @@ function App() {
                 <div className="page__container __container">
                     <div className="page__body">
                         <Navigation/>
-                        <Main somenotes={somenotes} addNote={addNode}/>
+                        <Main somenotes={somenotes} addNote={addNode} changeNote={changeNote}/>
                     </div>
                 </div>
             </section>

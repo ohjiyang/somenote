@@ -6,10 +6,14 @@ const Main = (props) => {
         props.addNote(parentNodeKey, value)
     }
 
+    const changeNote = (key, newValue) => {
+        props.changeNote(key, newValue)
+    }
+
     return (
         <div className="main">
             <div className="main__body">
-                <Somenote somenotes={props.somenotes.root} addNote={addNote}/>
+                <Somenote somenotes={props.somenotes.root} addNote={addNote} changeNote={changeNote}/>
             </div>
         </div>
     )
