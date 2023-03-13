@@ -4,10 +4,10 @@ import Navigation from "./Components/Navigation";
 import {useState} from "react";
 
 class TreeNode {
-    constructor(key, value = key, parent = null, checked = false) {
+    constructor(key, value, parent = null, checked = false) {
         this.key = key;
         this.value = value;
-        this.checked = checked
+        this.checked = checked;
         this.parent = parent;
         this.children = [];
     }
@@ -44,7 +44,7 @@ class Tree {
         yield node;
     }
 
-    insert(parentNodeKey, key, value = key) {
+    insert(parentNodeKey, key, value) {
         for (let node of this.preOrderTraversal()) {
             if (node.key === parentNodeKey) {
                 node.children.push(new TreeNode(key, value, node));
@@ -76,9 +76,19 @@ class Tree {
 function App() {
     const [somenotes, setSomenotes] = useState(new Tree("first", "first"));
 
-    const addNode = (parentNodeKey) => {
-        const key = ""
-        const value = ""
+    const getRandomKey =() => {
+        const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+        const charactersLength = characters.length;
+        let randomString = '';
+        for (let i = 0; i < 6; i++) {
+            randomString += characters.charAt(Math.floor(Math.random() * charactersLength));
+        }
+        return randomString
+    }
+
+    const addNode = (parentNodeKey, value) => {
+        const key = getRandomKey()
+        console.log(parentNodeKey, key, value)
         setSomenotes(prevSomenotes => {
             const updatedTree = new Tree(prevSomenotes.root.key, prevSomenotes.root.value);
             for (let node of prevSomenotes.preOrderTraversal()) {

@@ -2,8 +2,8 @@ import Somenote from "./MainComponents/Somenote";
 
 const Main = (props) => {
 
-    const addNote = (parentNodeKey) => {
-        props.addNote(parentNodeKey)
+    const addNote = (parentNodeKey, value) => {
+        props.addNote(parentNodeKey, value)
     }
 
     return (
